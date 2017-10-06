@@ -279,6 +279,8 @@ class RESTRequest
 		curl_setopt($curlHandle, CURLOPT_URL, $this->url);
 		curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_HEADER, true);
+		curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false);
 
         if (!empty($this->content_type))
             $this->headers[] = "Content-Type: " . $this->content_type;
